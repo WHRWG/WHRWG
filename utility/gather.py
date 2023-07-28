@@ -58,8 +58,6 @@ def getChromeDriver():
 
 
 def getAirbnb(driver, checkin, checkout):
-    driver.implicitly_wait(10)
-
     for location in locations:
         count = 0
         url = f"https://www.airbnb.co.kr/s/{location[0]}/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week&monthly_start_date=2023-07-01&monthly_length=3&price_filter_input_type=0&price_filter_num_nights=5&channel=EXPLORE&date_picker_type=calendar&checkin={checkin}&checkout={checkout}&adults=2&source=structured_search_input_header&search_type=filter_change"
@@ -67,7 +65,7 @@ def getAirbnb(driver, checkin, checkout):
         while True:
             count += 1
             driver.get(url)
-            time.sleep(2)
+            time.sleep(10)
             driver.execute_script("window.scrollTo(0, 2000)")
             soup = BeautifulSoup(driver.page_source, "html.parser")
             airbnbs = soup.find_all("div", class_="c4mnd7m dir dir-ltr")
@@ -106,7 +104,7 @@ def getHotels(driver, checkin, checkout):
         while True:
             count += 1
             driver.get(url)
-            time.sleep(2)
+            time.sleep(10)
             driver.execute_script("window.scrollTo(0, 2000)")
             soup = BeautifulSoup(driver.page_source, "html.parser")
             hotels = soup.find_all(
