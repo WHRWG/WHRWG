@@ -53,7 +53,7 @@ def getChromeDriver():
         driver = webdriver.Chrome()
     else:
         service, chrome_options = getChromeOptions()
-        driver = webdriver.Chrome(service=service, chrome_options=chrome_options)
+        driver = webdriver.Chrome(service=service, options=chrome_options)
     return driver
 
 

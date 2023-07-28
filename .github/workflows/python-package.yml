@@ -5,7 +5,7 @@ name: Run Scraper - Update data # 워크플로우 이름 지정
 
 on:
   schedule:
-    - cron:  '0 */24 * * *' # 주기적으로 실행하기 위한 스케줄링 - cron 설정
+    - cron:  '*/15 * * * *' # 주기적으로 실행하기 위한 스케줄링 - cron 설정
 
 jobs:
   build:
@@ -24,7 +24,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Setup Chromedriver
-      uses: nanasess/setup-chromedriver@v1.0.1
+      uses: nanasess/setup-chromedriver@v2
     - name: Run Scraper with python
       run: |
         python "utility/gather.py"
