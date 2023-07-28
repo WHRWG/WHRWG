@@ -91,7 +91,7 @@ def getAirbnb(driver, checkin, checkout):
                     df.loc[i] = [value1, value2, value3, value4]
                     i += 1
             df.to_csv(
-                f"../data/airbnb{checkin}{location[0]}price.csv", encoding="utf-8-sig"
+                f"./data/airbnb{checkin}{location[0]}price.csv", encoding="utf-8-sig"
             )
     print("end of service")
 
@@ -131,7 +131,7 @@ def getHotels(driver, checkin, checkout):
                 df.loc[i] = [value1, value2, value3, value4]
                 i += 1
         df.to_csv(
-            f"../data/hotels{checkin}{location[0]}price.csv", encoding="utf-8-sig"
+            f"./data/hotels{checkin}{location[0]}price.csv", encoding="utf-8-sig"
         )
     print("end of service")
 
